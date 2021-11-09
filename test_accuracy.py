@@ -52,7 +52,7 @@ def main(args):
     preds_stats = utils.predictions_analysis()
 
     if not args.test:
-        word2vec = gensim.models.KeyedVectors.load_word2vec_format(utils.config['word2vecfile'], binary=True)
+        word2vec = gensim.models.KeyedVectors.load_word2vec_format(utils.config['word2vecfile'], binary=True, limit=500000)
     else:
         word2vec = None
 

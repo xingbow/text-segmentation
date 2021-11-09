@@ -1,9 +1,9 @@
 import json
 
 jsondata = {
-    "word2vecfile": "/home/omri/datasets/word2vec/GoogleNews-vectors-negative300.bin",
-    "choidataset": "/home/omri/code/text-segmentation-2017/data/choi",
-    "wikidataset": "/home/omri/datasets/wikipedia/process_dump_r",
+    "word2vecfile": "/data2/xingbo/cscw2021/GoogleNews-vectors-negative300.bin",
+    "choidataset": "/data2/xingbo/cscw2021/text-segmentation/data/choi",
+    "wikidataset": "/data2/xingbo/cscw2021/wiki_727",
 }
 
 with open('config.json', 'w') as f:
