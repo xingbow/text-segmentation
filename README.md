@@ -12,6 +12,7 @@
 
 ### Prepare data
 - Download `word2vec` model: 
+- After unzipping the file, you will get two files: `word2vec.bin` and `word2vec.bin.vectors.npy`. Put them in the `data/word2vec/`
 
 
 ## Run segmentation model on user-defined texts
