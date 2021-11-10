@@ -52,7 +52,10 @@ def main(args):
     preds_stats = utils.predictions_analysis()
 
     if not args.test:
-        word2vec = gensim.models.KeyedVectors.load_word2vec_format(utils.config['word2vecfile'], binary=True, limit=500000)
+        # word2vec = gensim.models.KeyedVectors.load_word2vec_format(utils.config['word2vecfile'], binary=True)
+        # word2vec.init_sims(replace=True)
+        # word2vec.save('word2vec.bin')
+        word2vec = gensim.models.KeyedVectors.load(utils.config['word2vecfile'], mmap="r")
     else:
         word2vec = None
 
@@ -92,13 +95,19 @@ def main(args):
         if args.wiki:
             if (args.wiki_folder):
                 dataset = WikipediaDataSet(dataset_path, word2vec, folder=True, high_granularity=False)
+                print("dataset length: ", len(dataset))
             else :
                 dataset = WikipediaDataSet(dataset_path, word2vec, high_granularity=False)
+                print("dataset length: ", len(dataset))
+                print("dataset[0]: ", type(dataset[0]), len(dataset[0]))
+                print("dataset[0][0]: ", type(dataset[0][0]), len(dataset[0][0]))
+                print("dataset[0][1]: ", type(dataset[0][1]), len(dataset[0][1]))
+                print("dataset[0][2]: ", type(dataset[0][2]), dataset[0][2])
+                exit()
         else:
             dataset = ChoiDataset(dataset_path , word2vec)
 
         dl = DataLoader(dataset, batch_size=args.bs, collate_fn=collate_fn, shuffle=False)
-
 
 
         with tqdm(desc='Testing', total=len(dl)) as pbar:
@@ -108,6 +117,8 @@ def main(args):
             acc =  accuracy.Accuracy()
 
             for i, (data, targets, paths) in enumerate(dl):
+                print(type(data), len(data), type(data[0]), type(data[1]), type(data[2]))
+                exit()
                 if i == args.stop_after:
                     break
 

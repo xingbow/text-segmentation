@@ -76,16 +76,27 @@ def read_wiki_file(path, word2vec, remove_preface_segment=True, ignore_list=Fals
     all_sections = get_sections(path, high_granularity)
     required_sections = all_sections[1:] if remove_preface_segment and len(all_sections) > 0 else all_sections
     required_non_empty_sections = [section for section in required_sections if len(section) > 0 and section != "\n"]
-
+    # ******************************
+    # print("required_non_empty_sections: ", required_non_empty_sections)
+    # print(len(required_non_empty_sections))
+    # ******************************
     for section in required_non_empty_sections:
         sentences = section.split('\n')
         if sentences:
             for sentence in sentences:
                 is_list_sentence = wiki_utils.get_list_token() + "." == sentence.encode('utf-8')
+                # ******************************
+                # print("sentence: {}".format(sentence))
+                # print("wiki_utils.get_list_token(): ", wiki_utils.get_list_token())
+                # print("is_list_sentence: {}".format(is_list_sentence))
+                # ******************************
                 if ignore_list and is_list_sentence:
                     continue
                 if not return_as_sentences:
                     sentence_words = extract_sentence_words(sentence, remove_special_tokens=remove_special_tokens)
+                    # ******************************
+                    # print("sentence_words: {}".format(sentence_words))
+                    # ******************************
                     if 1 <= len(sentence_words):
                         data.append([word_model(word, word2vec) for word in sentence_words])
                     else:
@@ -99,7 +110,7 @@ def read_wiki_file(path, word2vec, remove_preface_segment=True, ignore_list=Fals
                         data.append(sentence)
             if data:
                 targets.append(len(data) - 1)
-
+    # print("data: ", type(data), len(data))
     return data, targets, path
 
 

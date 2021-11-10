@@ -1,3 +1,11 @@
+# Wrap ups
+
+## Speed up the word2vec loading process
+- https://stackoverflow.com/questions/42986405/how-to-speed-up-gensim-word2vec-model-load-time
+
+## 
+
+----
 # Text Segmentation as a Supervised Learning Task
 
 This repository contains code and supplementary materials which are required to train and evaluate a model as described in the paper [Text Segmentation as a Supervised Learning Task](https://arxiv.org/abs/1803.09337)
