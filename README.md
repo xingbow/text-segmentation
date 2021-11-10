@@ -19,7 +19,7 @@
     python run_seg.py --model <path_to_model> --str <target_texts_to_be_segmented>   
 
 ## Others
-### Speed up the word2vec loading process
+### Speed up the word2vec loading process for orginal word2vec
 - https://stackoverflow.com/questions/42986405/how-to-speed-up-gensim-word2vec-model-load-time
 
 
