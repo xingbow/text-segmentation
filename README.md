@@ -3,7 +3,8 @@
 ## Speed up the word2vec loading process
 - https://stackoverflow.com/questions/42986405/how-to-speed-up-gensim-word2vec-model-load-time
 
-## 
+## Run segmentation model on user-defined texts
+    python run_seg.py --model <path_to_model> --str <target_texts_to_be_segmented>   
 
 ----
 # Text Segmentation as a Supervised Learning Task
