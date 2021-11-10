@@ -1,10 +1,26 @@
 # Wrap ups
 
-## Speed up the word2vec loading process
-- https://stackoverflow.com/questions/42986405/how-to-speed-up-gensim-word2vec-model-load-time
+## Preparation
+
+### Creating an environment:
+
+    conda create -n textseg python=2.7 numpy scipy gensim ipython 
+    source activate textseg
+    pip install http://download.pytorch.org/whl/cu80/torch-0.3.0-cp27-cp27mu-linux_x86_64.whl 
+    pip install tqdm pathlib2 segeval tensorboard_logger flask flask_wtf nltk
+    pip install pandas xlrd xlsxwriter termcolor
+
+### Prepare data
+- Download `word2vec` model: 
+
 
 ## Run segmentation model on user-defined texts
     python run_seg.py --model <path_to_model> --str <target_texts_to_be_segmented>   
+
+## Others
+### Speed up the word2vec loading process
+- https://stackoverflow.com/questions/42986405/how-to-speed-up-gensim-word2vec-model-load-time
+
 
 ----
 # Text Segmentation as a Supervised Learning Task

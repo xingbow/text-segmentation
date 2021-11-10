@@ -110,10 +110,8 @@ def split_encode_sentences(txt, word2vec):
 
 def main(args):
     start = timer()
-    ## load config
-    utils.read_config_file(args.config)
     ## load word2vec
-    word2vec = gensim.models.KeyedVectors.load(utils.config["word2vecfile"], mmap="r")
+    word2vec = gensim.models.KeyedVectors.load(args.word2vec, mmap="r")
     word2vec_done = timer()
     print("loading word2vec: " + str(word2vec_done - start) + " s.")
     ## load model
@@ -134,6 +132,7 @@ def main(args):
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--model', help='Model to run - will import and run (CPU only)', default="data/model_cpu.t7")
+    parser.add_argument('--word2vec', help='Word2vec model', default="data/word2vec/word2vec.bin")
     parser.add_argument('--str', help='input texts to be segmented', default = "Despite being a critical communication skill, grasping humor is challenging: a successful use of humor requires a mixture of both engaging content build-up and an appropriate vocal delivery (e.g., pause). Prior studies on computational humor emphasize the textual and audio features immediately next to the punchline, yet overlooking longer-term context setup. Moreover, the theories are usually too abstract for understanding each concrete humor snippet. To fill in the gap, we develop DeHumor, a visual analytical system for analyzing humorous behaviors in public speaking. To intuitively reveal the building blocks of each concrete example, DeHumor decomposes each humorous video into multimodal features and provides inline annotations of them on the video script. In particular, to better capture the build-ups, we introduce content repetition as a complement to features introduced in theories of computational humor and visualize them in a context linking graph. To help users locate the punchlines that have the desired features to learn, we summarize the content (with keywords) and humor feature statistics on an augmented time matrix. With case studies on stand-up comedy shows and TED talks, we show that DeHumor is able to highlight various building blocks of humor examples. In addition, expert interviews with communication coaches and humor researchers demonstrate the effectiveness of DeHumor for multimodal humor analysis of speech content and vocal delivery.")
     parser.add_argument('--config', help='Path to config.json', default='config.json')
     parser.add_argument('--seg_threshold', help='Threshold for binary classificetion', type=float, default=0.4)
