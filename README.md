@@ -16,6 +16,7 @@
 - Download `word2vec` model: 
    - BaiduNetDisk: https://pan.baidu.com/s/1ESjl4zG8M9-Bfx30bNcmVA 
       - passsword: 9p6r
+   - [One Drive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/xwangeg_connect_ust_hk/EZ-FG2a4L-9NvjkqATec__8Bn1leLla3rA9guj56bAcSgw?e=Dlz2uf)
 
 - After unzipping the file, you will get two files: `word2vec.bin` and `word2vec.bin.vectors.npy`. Put them in the `data/word2vec/`
 
