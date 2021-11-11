@@ -16,12 +16,12 @@
 - Download `word2vec` model: 
    - BaiduNetDisk: https://pan.baidu.com/s/1ESjl4zG8M9-Bfx30bNcmVA 
       - passsword: 9p6r
-      
+
 - After unzipping the file, you will get two files: `word2vec.bin` and `word2vec.bin.vectors.npy`. Put them in the `data/word2vec/`
 
 
 ## Run segmentation model on user-defined texts
-    python run_seg.py --model <path_to_model> --str <target_texts_to_be_segmented>   
+    python run_seg.py --model <path_to_model> --word2vec <path_to_word2vec> --str <target_texts_to_be_segmented>   
 
 ## Others
 ### Speed up the word2vec loading process for orginal word2vec
