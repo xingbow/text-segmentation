@@ -4,14 +4,19 @@
 
 ### Creating an environment:
 
-    conda create -n textseg python=2.7 numpy scipy gensim ipython 
+    conda create -n textseg python=2.7 numpy scipy ipython 
     source activate textseg
     pip install http://download.pytorch.org/whl/cu80/torch-0.3.0-cp27-cp27mu-linux_x86_64.whl 
-    pip install tqdm pathlib2 segeval tensorboard_logger flask flask_wtf nltk
+    pip install gensim
+    pip install nltk==3.0
+    pip install tqdm pathlib2 segeval tensorboard_logger flask flask_wtf 
     pip install pandas xlrd xlsxwriter termcolor
 
 ### Prepare data
 - Download `word2vec` model: 
+   - BaiduNetDisk: https://pan.baidu.com/s/1ESjl4zG8M9-Bfx30bNcmVA 
+      - passsword: 9p6r
+      
 - After unzipping the file, you will get two files: `word2vec.bin` and `word2vec.bin.vectors.npy`. Put them in the `data/word2vec/`
 
 
